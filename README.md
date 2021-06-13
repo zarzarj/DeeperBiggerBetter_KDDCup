@@ -24,13 +24,13 @@ Due to the file size of the `MAG240M-LSC` node feature matrix, some scripts may 
 For training the model on k gpus, run:
 
 ```bash
-python rgnn.py --device=k --model=rgat
+python rgnn.py --exp_name rgat_2048_cosine_radam_p16_extramlp_trainval --device=k --accelerator='ddp' --model=rgat --hidden_channels=2048 --precision=16 --scheduler=cosine --optimizer=radam --extra_mlp --train_set=train_val
 ```
 
-For evaluating the `Relational-GAT` model on best validation checkpoint, run:
+For evaluating the `Relational-GAT` model on best validation checkpoint and save prediction logits, run:
 
 ```bash
-python rgnn.py --device=k --model=rgat --evaluate
+python rgnn.py --exp_name rgat_2048_cosine_radam_p16_extramlp_trainval --device=k --accelerator='ddp' --evaluate --save_eval_probs
 ```
 
 ## Performance
