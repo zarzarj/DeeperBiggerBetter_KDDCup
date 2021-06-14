@@ -561,7 +561,7 @@ def main():
         ckptdirs = glob.glob(f'{logdir}/checkpoints/*')
         if len(ckptdirs) > 0:
             ckpt = ckptdirs[0]
-            model = module_class.load_from_checkpoint(
+            model = RGNN.load_from_checkpoint(
                         checkpoint_path=ckpt, hparams_file=f'{logdir}/hparams.yaml',
                         save_eval_probs=args.save_eval_probs, testing=args.test,
                         train_set=args.train_set)
