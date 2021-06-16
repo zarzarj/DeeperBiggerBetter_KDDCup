@@ -39,7 +39,7 @@ For training the 3-layer model on k gpus, run:
 python rgnn.py --exp_name rgat_3layers --device=k --accelerator='ddp' --model=rgat --hidden_channels=1800 --precision=16 --scheduler=cosine --optimizer=radam --extra_mlp --train_set=train --author_labels --num_layers=3 --sizes='25-20-15' --batch_size=512
 ```
 
-For evaluating the 2-layer model on the best validation checkpoint with a neighborhood of 5*(sizes) and save prediction logits, run:
+For evaluating the 3-layer model on the best validation checkpoint with a neighborhood of 5*(sizes) and save prediction logits, run:
 
 ```bash
 python rgnn.py --exp_name rgat_3layers --device=k --accelerator='ddp' --evaluate  --eval_size=5 --eval_size_dynamic --save_eval_probs
