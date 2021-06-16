@@ -37,8 +37,11 @@ python rgnn.py --device=k --accelerator='ddp' --evaluate --save_eval_probs
 | R-GAT [6] | 70.48 | 69.49 | 12.3M | GeForce RTX 2080 Ti (11GB GPU) |
 | Ours (2-layer) | 71.08 | - | 81.2M | NVIDIA V100 (32GB GPU) |
 | Ours (3-layer) | 71.87 | - | 99.5M | NVIDIA RTX 6000 (48GB GPU) |
+| Ours (Ensemble) | 72.72 | 73.53 | NVIDIA V100 (32GB GPU), NVIDIA RTX 6000 (48GB GPU) |
 
 \* Test Accuracy is evaluated on the **hidden test set.**
+
+
 
 ## References
 This code is heavily based on [1].
