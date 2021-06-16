@@ -20,7 +20,7 @@ Due to the file size of the `MAG240M-LSC` node feature matrix, training requires
 
 ### Training
 
-For training the 2-layer model on k gpus, run:
+For training the 2-layer model on 4 gpus, run:
 
 ```bash
 python rgnn.py --exp_name rgat_2layers --device=k --accelerator='ddp' --model=rgat --hidden_channels=2048 --precision=16 --scheduler=cosine --optimizer=radam --extra_mlp --train_set=train --author_labels
@@ -30,20 +30,22 @@ python rgnn.py --exp_name rgat_2layers --device=k --accelerator='ddp' --model=rg
 For evaluating the 2-layer model on the best validation checkpoint with a neighborhood of 5*(sizes) and save prediction logits, run:
 
 ```bash
-python rgnn.py --exp_name rgat_2layers --device=k --accelerator='ddp' --evaluate --eval_size=5 --eval_size_dynamic --save_eval_probs
+python rgnn.py --exp_name rgat_2layers --device=4 --accelerator='ddp' --evaluate --eval_size=5 --eval_size_dynamic --save_eval_probs
 ```
 
-For training the 3-layer model on k gpus, run:
+For training the 3-layer model on 4 gpus, run:
 
 ```bash
-python rgnn.py --exp_name rgat_3layers --device=k --accelerator='ddp' --model=rgat --hidden_channels=1800 --precision=16 --scheduler=cosine --optimizer=radam --extra_mlp --train_set=train --author_labels --num_layers=3 --sizes='25-20-15' --batch_size=512
+python rgnn.py --exp_name rgat_3layers --device=4 --accelerator='ddp' --model=rgat --hidden_channels=1800 --precision=16 --scheduler=cosine --optimizer=radam --extra_mlp --train_set=train --author_labels --num_layers=3 --sizes='25-20-15' --batch_size=512
 ```
 
 For evaluating the 3-layer model on the best validation checkpoint with a neighborhood of 5*(sizes) and save prediction logits, run:
 
 ```bash
-python rgnn.py --exp_name rgat_3layers --device=k --accelerator='ddp' --evaluate  --eval_size=5 --eval_size_dynamic --save_eval_probs
+python rgnn.py --exp_name rgat_3layers --device=4 --accelerator='ddp' --evaluate  --eval_size=5 --eval_size_dynamic --save_eval_probs
 ```
+
+To train the models on the training + validation sets (only for the model used on the hidden test set) replace --train_set=train with --train_set=train_val
 
 ## Performance
 
