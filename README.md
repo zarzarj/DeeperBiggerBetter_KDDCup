@@ -44,4 +44,7 @@ python rgnn.py --device=k --accelerator='ddp' --evaluate --save_eval_probs
 This code is heavily based on [1].
 
 [1] Hu *et al.*: [Open Graph Benchmark: Datasets for Machine Learning on Graphs](https://arxiv.org/abs/2005.00687)
+
 [6] Schlichtkrull *et al.*: [Modeling Relational Data with Graph Convolutional Networks](https://arxiv.org/abs/1703.06103)
+
+
